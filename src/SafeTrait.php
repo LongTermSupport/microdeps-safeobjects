@@ -15,7 +15,7 @@ trait SafeTrait
             sprintf(
                 SafeObjectInterface::SET_EXCEPTION_MSG,
                 $name,
-                $this->guessProperty($name)
+                (new PropertyGuesser($this, $name))->getGuess()
             )
         );
     }
@@ -28,7 +28,7 @@ trait SafeTrait
                 SafeObjectInterface::EXCEPTION_MSG,
                 'get',
                 $name,
-                $this->guessProperty($name)
+                (new PropertyGuesser($this, $name))->getGuess()
             )
         );
     }
@@ -41,13 +41,8 @@ trait SafeTrait
                 SafeObjectInterface::EXCEPTION_MSG,
                 'isset',
                 $name,
-                $this->guessProperty($name)
+                (new PropertyGuesser($this, $name))->getGuess()
             )
         );
-    }
-
-    private function guessProperty(string $incorrectProperty): string
-    {
-        return (new PropertyGuesser($this, $incorrectProperty))->getGuess();
     }
 }

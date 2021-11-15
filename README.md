@@ -5,8 +5,9 @@ MicroDeps are all about very small pieces of code that do a single small thing w
 This MicroDep is for Safe Objects. This is an implementation of objects that prevent one particular foot gun - dynamic
 properties.
 
-This uses the magic `__get`, `__set` and `__isset` methods to intercept accesses to non existant properties and throws
-an helpful exception.
+This uses the magic `__get`, `__set` and `__isset` methods to intercept accesses to non existant properties and throws a
+helpful exception - with a hint on which property you might have meant if it is a typo, or otherwise listing all public
+properties.
 
 ## Installing
 
