@@ -1143,12 +1143,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LongTermSupport/php-qa-ci.git",
-                "reference": "c9b6373f885c73da2da5476c1697158a01d6b13f"
+                "reference": "2b8d0f69f9ef1048f3675c4fe90625aa4a2fb529"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LongTermSupport/php-qa-ci/zipball/c9b6373f885c73da2da5476c1697158a01d6b13f",
-                "reference": "c9b6373f885c73da2da5476c1697158a01d6b13f",
+                "url": "https://api.github.com/repos/LongTermSupport/php-qa-ci/zipball/2b8d0f69f9ef1048f3675c4fe90625aa4a2fb529",
+                "reference": "2b8d0f69f9ef1048f3675c4fe90625aa4a2fb529",
                 "shasum": ""
             },
             "require": {
@@ -1208,7 +1208,7 @@
                 "issues": "https://github.com/LongTermSupport/php-qa-ci/issues",
                 "source": "https://github.com/LongTermSupport/php-qa-ci/tree/master"
             },
-            "time": "2021-11-11T16:34:27+00:00"
+            "time": "2021-11-15T17:08:14+00:00"
         },
         {
             "name": "maglnet/composer-require-checker",
