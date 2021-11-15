@@ -25,6 +25,7 @@ final class PropertyGuesserTest extends TestCase
         return new class() {
             public string  $foo;
             public string  $thing;
+            /* @phpstan-ignore-next-line */
             private string $bar;
         };
     }
