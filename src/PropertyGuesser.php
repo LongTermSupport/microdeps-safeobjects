@@ -24,10 +24,10 @@ final class PropertyGuesser
     private function guessCorrectProperty(object $class, string $incorrectProperty): string
     {
         $reflectionProperties = (new ReflectionClass($class))->getProperties(ReflectionProperty::IS_PUBLIC);
-        $allPublicProps       = [];
+        $allPublicProps = [];
         foreach ($reflectionProperties as $reflectionProperty) {
             $allPublicProps[] = $reflectionProperty->name;
-            $leven            = levenshtein($incorrectProperty, $reflectionProperty->name);
+            $leven = levenshtein($incorrectProperty, $reflectionProperty->name);
             if (-1 === $leven) {
                 continue;
             }
