@@ -1,0 +1,41 @@
+{
+  "name": "lts/microdeps-safeobjects",
+  "type": "library",
+  "description": "A micro dependency that provides safe PHP objects",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Joseph Edmonds",
+      "email": "joseph@ltscommerce.dev"
+    }
+  ],
+  "require": {
+    "php": "^8.0",
+    "ext-pdo": "^8.0"
+  },
+  "require-dev": {
+    "lts/php-qa-ci": "dev-master@dev"
+  },
+  "config": {
+    "bin-dir": "bin",
+    "optimize-autoloader": true,
+    "preferred-install": {
+      "*": "dist"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "MicroDeps\\SafeObjects\\": [
+        "src/"
+      ]
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MicroDeps\\SafeObjects\\Tests\\": [
+        "tests/"
+      ]
+    }
+  },
+  "minimum-stability": "stable"
+}
