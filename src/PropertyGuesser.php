@@ -16,13 +16,18 @@ final class PropertyGuesser
         $this->guess = $this->guessCorrectProperty($class, $incorrectProperty);
     }
 
+    public function getGuess(): string
+    {
+        return $this->guess;
+    }
+
     private function guessCorrectProperty(object $class, string $incorrectProperty): string
     {
         $reflectionProperties = (new ReflectionClass($class))->getProperties(ReflectionProperty::IS_PUBLIC);
-        $allPublicProps = [];
+        $allPublicProps       = [];
         foreach ($reflectionProperties as $reflectionProperty) {
             $allPublicProps[] = $reflectionProperty->name;
-            $leven = levenshtein($incorrectProperty, $reflectionProperty->name);
+            $leven            = levenshtein($incorrectProperty, $reflectionProperty->name);
             if (-1 === $leven) {
                 continue;
             }
@@ -32,10 +37,5 @@ final class PropertyGuesser
         }
 
         return 'one of ' . "\n  - " . implode("\n  - ", $allPublicProps);
-    }
-
-    public function getGuess(): string
-    {
-        return $this->guess;
     }
 }

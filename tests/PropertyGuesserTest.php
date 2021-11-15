@@ -20,28 +20,12 @@ final class PropertyGuesserTest extends TestCase
   - foo
   - thing';
 
-    private function getTestObject(): object
-    {
-        return new class() {
-            public string  $foo;
-            public string  $thing;
-            /* @phpstan-ignore-next-line */
-            private string $bar;
-        };
-    }
-
     /** @test */
     public function itReturnsAllForLongPropertyNames(): void
     {
         $actual   = $this->getGuess(str_repeat('a', 256));
         $expected = self::SUGGEST_ALL;
         self::assertSame($expected, $actual);
-    }
-
-    private function getGuess(string $name): string
-    {
-        return (new PropertyGuesser($this->getTestObject(), $name))
-            ->getGuess();
     }
 
     /** @test */
@@ -70,5 +54,22 @@ final class PropertyGuesserTest extends TestCase
     {
         $actual = $this->getGuess($typo);
         self::assertSame($expected, $actual);
+    }
+
+    private function getTestObject(): object
+    {
+        return new class() {
+            public string $foo;
+            public string $thing;
+            /* @phpstan-ignore-next-line */
+            private string $bar;
+        };
+    }
+
+    private function getGuess(string $name): string
+    {
+        return (new PropertyGuesser($this->getTestObject(), $name))
+            ->getGuess()
+        ;
     }
 }

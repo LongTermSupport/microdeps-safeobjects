@@ -17,15 +17,6 @@ use RuntimeException;
  */
 final class SafeTraitTest extends TestCase
 {
-    private function getTestObject(): object
-    {
-        return new class() {
-            public string $realProperty;
-            public string $thing;
-            use SafeTrait;
-        };
-    }
-
     /** @test */
     public function itThrowsOnInvalidSet(): void
     {
@@ -88,5 +79,14 @@ final class SafeTraitTest extends TestCase
         );
         /* @phpstan-ignore-next-line */
         isset($this->getTestObject()->tihng);
+    }
+
+    private function getTestObject(): object
+    {
+        return new class() {
+            public string $realProperty;
+            public string $thing;
+            use SafeTrait;
+        };
     }
 }
